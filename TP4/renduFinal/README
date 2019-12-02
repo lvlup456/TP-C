@@ -1,0 +1,15 @@
+La compilation du programme s'execute a partir du Makefile et de la commande `make` qui execute ensuite la compilation separe 
+des fichier PI.C, sqrt.c et main.c
+(
+    gcc -Wall  -o bin/PI.o -c src/PI.c -lm
+    gcc -Wall  -o bin/main.o -c src/main.c -lm
+    gcc -Wall  -o bin/sqrt.o -c src/sqrt.c -lm
+    gcc -Wall  -o prgm bin/PI.o bin/main.o bin/sqrt.o -lm
+)
+
+L'executable prgm est alors cree et il est lanceable grace a `./prgm`
+
+Un menue vous demande alors en entrant un numero de selectionner la fonctionnalite choisie.
+
+Attention:
+Au dessu de 100 iterations, la methode Theon ne fonctionne plus a cause des nombres trop grand qui ne "rentre" plus dans les variables. 

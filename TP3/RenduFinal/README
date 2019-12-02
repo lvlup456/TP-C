@@ -1,0 +1,5 @@
+Pour compiler le programme utiliser la commande:  make
+
+Pour lancer le programme, utiliser : ./prgm
+
+Le programme est compose d'un menu permetant d'acceder a toutes les fonctions demande dans le TD

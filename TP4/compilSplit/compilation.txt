@@ -1,0 +1,2 @@
+gcc -c main.c PI.c sqrt.c
+gcc -o programme main.o PI.o sqrt.o -lm

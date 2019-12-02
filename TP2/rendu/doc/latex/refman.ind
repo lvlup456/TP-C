@@ -1,0 +1,60 @@
+\begin{theindex}
+
+  \item {div\+Entier}
+    \subitem {div\+Entier.\+c}, \hyperpage{4}
+  \item {div\+Entier.\+c}
+    \subitem {div\+Entier}, \hyperpage{4}
+
+  \indexspace
+
+  \item {incremente\+Date}
+    \subitem {prediction.\+c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.\+c}, \hyperpage{5}
+  \item {main.\+c}
+    \subitem {main}, \hyperpage{5}
+  \item {max\+Min}
+    \subitem {max\+Min.\+c}, \hyperpage{6}
+  \item {max\+Min.\+c}
+    \subitem {max\+Min}, \hyperpage{6}
+
+  \indexspace
+
+  \item {nbr}
+    \subitem {nbr.\+c}, \hyperpage{7}
+  \item {nbr.\+c}
+    \subitem {nbr}, \hyperpage{7}
+
+  \indexspace
+
+  \item {prediction}
+    \subitem {prediction.\+c}, \hyperpage{9}
+  \item {prediction.\+c}
+    \subitem {incremente\+Date}, \hyperpage{8}
+    \subitem {prediction}, \hyperpage{9}
+
+  \indexspace
+
+  \item {richeter}
+    \subitem {richter.\+c}, \hyperpage{10}
+  \item {richter.\+c}
+    \subitem {richeter}, \hyperpage{10}
+
+  \indexspace
+
+  \item {saisir\+Personne}
+    \subitem {saisir\+Personne.\+c}, \hyperpage{11}
+  \item {saisir\+Personne.\+c}
+    \subitem {saisir\+Personne}, \hyperpage{11}
+  \item {src/div\+Entier.\+c}, \hyperpage{3}
+  \item {src/main.\+c}, \hyperpage{4}
+  \item {src/max\+Min.\+c}, \hyperpage{5}
+  \item {src/nbr.\+c}, \hyperpage{7}
+  \item {src/prediction.\+c}, \hyperpage{8}
+  \item {src/richter.\+c}, \hyperpage{9}
+  \item {src/saisir\+Personne.\+c}, \hyperpage{10}
+
+\end{theindex}
