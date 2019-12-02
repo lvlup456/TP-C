@@ -17,36 +17,58 @@
 #include "vigenere.h"
 #include "scytale.h"
 
+int saisiEnier(){
+    int n,test;
+    test = scanf("%d",&n);
+    if (test == 1){
+        return n;
+    }else{
+        printf("rentre un vrai numero\n");
+        exit(EXIT_SUCCESS);
+    }
+}
+
 /**
  * @brief preuve de concept des differents tris
  * 
  * @return int 
  */
-int main(){
+int main(int argc, char const *argv[]){
 
-    char chaine[20] = "coucou a tous";
+    if (argc != 2){
+        printf("veillez rentre un parametre pour ctrypter\n");
+        return 0;
+    }
 
-    cryptageCesar(8,chaine);
-    printf("%s\n",chaine);
-    decryptageCesar(8,chaine);
-    printf("%s\n",chaine);
-
-    char cle[20] = "teSt";
-    char chaine2[20] = "couCou A toUs";
-    cryptageVigenere(cle,chaine2);
+    char mot[100];
     
-    printf("%s\n",chaine2);
-    decryptageVigenere(cle,chaine2);
-    printf("%s\n",chaine2);
-
-    char* chaine3 = malloc(37*sizeof(char));
-    strcpy(chaine3,"RENDEZ VOUS DEMAIN SOIR A LA TIREUSE");
+    if (strcmp(argv[1],"cesar") == 0){
+        printf("le mot: ");
+        fgets (mot, 100, stdin);
+        printf("le decalage: ");
+        int decalage = saisiEnier();
+        cryptageCesar(decalage,mot);
+        printf("le mot crypte est : ");
+        printf("%s\n",mot);
+    }else if (strcmp(argv[1],"vigenere") == 0){
+        printf("le mot: ");
+        fgets (mot, 100, stdin);
+        char cle[200];
+        printf("la cle: ");
+        fgets (cle, 100, stdin);
+        cryptageVigenere(cle,mot);
+        printf("le mot crypte est : ");
+        printf("%s\n",mot);
+    }else if (strcmp(argv[1],"scytale") == 0){
+        printf("le mot: ");
+        fgets (mot, 100, stdin);
+        mot[strlen(mot)-1]='\0';
+        char* nvxMot = cryptageScytale(mot);
+        printf("le mot crypte est : %s\n",nvxMot);
+    }else{
+        printf("veillez rentre un parametre correcte\n");
+    }
     
-    chaine3 = cryptageScytale(chaine3);
-    printf("%s\n",chaine3);
-    chaine3 = cryptageScytale(chaine3);
-    printf("%s\n",chaine3);
-
 
     return 0;
 }

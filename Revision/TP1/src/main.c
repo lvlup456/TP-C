@@ -43,6 +43,17 @@ int chance(int n){
     return nbrEssaies;
 }
 
+int decalage(){
+    int n = 10;
+    int* tab = {0,3,5,6,8,7,4,5,2,1};
+    int decalage = 3;
+
+    int* nvxtab = malloc(n*sizeof(int));
+    for (int i = 0; i < n; i++){
+        nvxtab[i] = tab[]
+    }
+}
+
 int main(){
     
     

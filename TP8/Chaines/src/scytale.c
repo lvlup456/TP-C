@@ -22,24 +22,32 @@ char* cryptageScytale(char* chaine){
 
     int lenchaine = strlen(chaine);
     int lenCarre = 1;
-    int i,pose = 0;
+    int pose = 0;
     while((lenCarre*lenCarre) < lenchaine){
         lenCarre++;
     }
-    char* nvlChaine = malloc((lenCarre*lenCarre + 1)*sizeof(char) );
+    char** matrice = malloc(lenCarre*sizeof(char*));
+    for (int i = 0; i < lenCarre; i++){
+        matrice[i] = malloc(lenCarre*sizeof(char));
+    }
 
-    while((lenCarre*lenCarre) != i){
-        if (pose >= lenchaine || chaine[pose] == '\0'){
-            nvlChaine[i] = 32;
-        }else{
-            nvlChaine[i] = chaine[pose];
+    for (int i = 0; i < lenCarre; i++){
+        for (int j = 0; j < lenCarre; j++){
+            if (pose < lenchaine){
+                matrice[i][j] = chaine[pose];
+                pose++;
+            }else{
+                matrice[i][j] = 32;
+            }
+        }    
+    }
+    char* nvlChaine = malloc(lenCarre*lenCarre*sizeof(char));
+    pose = 0;
+    for (int i = 0; i < lenCarre; i++){
+        for (int j = 0; j < lenCarre; j++){
+            nvlChaine[pose] = matrice[j][i];
+            pose++;
         }
-        pose += lenCarre;
-        if ((pose >= (lenCarre*lenCarre))){
-            pose = (pose % (lenCarre*lenCarre)) + 1;
-        }
-        i++;
-    }    
-    nvlChaine[i] = '\0';
+    }
     return nvlChaine;
 }
