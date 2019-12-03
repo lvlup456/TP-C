@@ -5,8 +5,7 @@
 
 int main(){
     afficheResultat2d(resolutionEqq(1.0,1.0,1.0));
+    
+    
     return 0;
-
-
-
 }
