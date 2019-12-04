@@ -2,7 +2,7 @@
 #define __AFFICHAGE_H_
 
 void printMain(int taille,carte* main);
-void printPartie(carte* jeux,int tailleJeux);
+void printPartie(carte* jeux,int tailleJeux,int premierJoueur);
 int saisiEnier();
 
 #endif

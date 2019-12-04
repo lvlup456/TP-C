@@ -4,7 +4,6 @@
     typedef enum valeurs valeurs;
 
     enum valeurs {
-        AS = 1,
         DEUX = 2,
         TROIS = 3,
         QUATRE = 4,
@@ -16,7 +15,8 @@
         DIX = 10,
         VALLET = 11,
         DAME = 12,
-        ROI = 13
+        ROI = 13,
+        AS = 14
     };
 
     typedef enum couleurs couleurs;
@@ -32,18 +32,27 @@
     typedef struct carte carte;
 
     struct carte{
-        valeurs val;
-        couleurs coul;
+        enum valeurs val;
+        enum couleurs coul;
     };
 
     typedef struct joueur joueur;
  
     struct joueur{
         int tailleMain;
-        carte* main;
+        struct carte* main;
         int points;
     };
 
-    
-    
+    typedef struct partieEnCours partieEnCours;
+
+    struct partieEnCours{
+        int taillePartie;
+        int aJouerCoeur;
+        int* taillePlieRemporte;
+        enum couleurs coulActuel;
+        struct carte* plie;
+        struct carte** plieRemporte;
+    };
+
 #endif

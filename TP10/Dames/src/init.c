@@ -10,10 +10,10 @@ carte* initDeck(){
 
     carte* deck = malloc((13*4)* sizeof(carte));
 
-    for (int i = 1; i <= 13; i++){
+    for (int i = 2; i <= 14; i++){
         for (int j = 1; j <= 4; j++){
-            deck[13*(j-1) + (i-1)].coul = j;
-            deck[13*(j-1) + (i-1)].val = i;
+            deck[13*(j-1) + (i-2)].coul = j;
+            deck[13*(j-1) + (i-2)].val = i;
         }
     }
     return deck;
@@ -27,7 +27,7 @@ joueur initJoueur(){
     return player;
 }
 
-carte* retirePioche(carte* deck,int taille,int emplacement){
+carte* retirerCarte(carte* deck,int taille,int emplacement){
     carte* nvxDeck = malloc(sizeof(carte)*(taille-1));
     int place = 0;
     for (int i = 0; i < taille; i++){
@@ -49,7 +49,7 @@ void distributCarte(joueur* table,carte* deck){
     for (int i = 0; i < 13*4; i++){
         pose = rand() % taille;
         table[player].main[poseMain] = deck[pose];
-        deck = retirePioche(deck,taille,pose);
+        deck = retirerCarte(deck,taille,pose);
         taille--;
         player++;
         if (player >= 4){
@@ -71,3 +71,16 @@ joueur* init(){
     return table;
 }
 
+
+partieEnCours* initPartieEnCours(){
+    partieEnCours* jeuxEnCours = malloc(sizeof(partieEnCours));
+    jeuxEnCours->taillePartie = 0;
+    jeuxEnCours->aJouerCoeur = 0;
+    jeuxEnCours->coulActuel = 5;
+    jeuxEnCours->taillePlieRemporte = malloc(sizeof(int)*4);
+    for (int i = 0; i < 4; i++){
+        jeuxEnCours->taillePlieRemporte[i] = 0;
+    }
+    jeuxEnCours->plieRemporte = malloc(4*sizeof(carte*));
+    return jeuxEnCours;
+}
