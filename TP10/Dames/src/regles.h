@@ -9,6 +9,9 @@ int estJouable(couleurs couleurActuel, int defauseCoeur,carte* main,int tailleMa
 void reporterPlie(joueur* plateau,partieEnCours* jeuxEnCours,int premierJoueur);
 void calculePoints(joueur* plateau,partieEnCours* jeuxEnCours);
 int testAGagne(joueur* plateau);
+void reinitialisationPartieEnCours(partieEnCours* jeuxEnCours);
+void reinitialisationTable(joueur* table);
+void echangeDeCarte(int tour, joueur* plateau);
 
 
 

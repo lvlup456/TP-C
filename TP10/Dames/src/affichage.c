@@ -1,3 +1,13 @@
+/**
+ * @file affichage.c
+ * @author Durand Thomas
+ * @brief ensembles des fonctions lie a l'affichage 
+ * @version 0.1
+ * @date 2019-12-09
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -5,12 +15,15 @@
 #include "struct.h"
 #include "affichage.h"
 
-
+/**
+ * @brief affiche une main
+ * 
+ * @param taille 
+ * @param main 
+ */
 void printMain(int taille,carte* main){
     for (int i = 0; i < taille; i++){
         printf("%d\t",i);
-        printf("%d\t",main[i].val);
-
         switch (main[i].val){
         case 14:
             printf(" As ");
@@ -78,9 +91,16 @@ void printMain(int taille,carte* main){
     }
 }
 
+/**
+ * @brief affiche le plie en cours
+ * 
+ * @param taille 
+ * @param main 
+ * @param premierJoueur 
+ */
 void printPlie(int taille,carte* main,int premierJoueur){
     for (int i = 0; i < taille; i++){
-        printf("%d\t",(premierJoueur+i)%4);
+        printf("joueur: %d\t",(premierJoueur+i)%4+1);
         switch (main[i].val){
             case 2:
                 printf(" Deux ");
@@ -148,6 +168,11 @@ void printPlie(int taille,carte* main,int premierJoueur){
     }
 }
 
+/**
+ * @brief fonction pour saisir un entier
+ * 
+ * @return int 
+ */
 int saisiEnier(){
     int n,test;
     test = scanf("%d",&n);
@@ -159,6 +184,13 @@ int saisiEnier(){
     }
 }
 
+/**
+ * @brief affiche une partie
+ * 
+ * @param jeux 
+ * @param tailleJeux 
+ * @param premierJoueur 
+ */
 void printPartie(carte* jeux,int tailleJeux,int premierJoueur){
 
     printf("Voici le jeux en cours:\n");

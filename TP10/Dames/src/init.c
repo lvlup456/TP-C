@@ -1,3 +1,13 @@
+/**
+ * @file init.c
+ * @author Durand Thomas
+ * @brief ensemble des fonctions lie a l'initialisation d'une partie
+ * @version 0.1
+ * @date 2019-12-09
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -6,10 +16,13 @@
 #include "init.h"
 #include "affichage.h"
 
+/**
+ * @brief initialise un deck
+ * 
+ * @return carte* 
+ */
 carte* initDeck(){
-
     carte* deck = malloc((13*4)* sizeof(carte));
-
     for (int i = 2; i <= 14; i++){
         for (int j = 1; j <= 4; j++){
             deck[13*(j-1) + (i-2)].coul = j;
@@ -19,6 +32,11 @@ carte* initDeck(){
     return deck;
 }
 
+/**
+ * @brief initialise un joueur
+ * 
+ * @return joueur 
+ */
 joueur initJoueur(){
     joueur player;
     player.tailleMain = 13;
@@ -26,7 +44,14 @@ joueur initJoueur(){
     player.main = malloc(13*sizeof(carte));
     return player;
 }
-
+/**
+ * @brief retire une carte d'une liste de carte
+ * 
+ * @param deck 
+ * @param taille 
+ * @param emplacement 
+ * @return carte* 
+ */
 carte* retirerCarte(carte* deck,int taille,int emplacement){
     carte* nvxDeck = malloc(sizeof(carte)*(taille-1));
     int place = 0;
@@ -36,10 +61,15 @@ carte* retirerCarte(carte* deck,int taille,int emplacement){
             place++;
         }
     }
-    free(deck);
+    //free(deck);
     return nvxDeck;
 }
-
+/**
+ * @brief distribut le deck au joueurs
+ * 
+ * @param table 
+ * @param deck 
+ */
 void distributCarte(joueur* table,carte* deck){
     srand(time(NULL));
     int poseMain = 0;
@@ -59,7 +89,11 @@ void distributCarte(joueur* table,carte* deck){
     }    
 }
 
-
+/**
+ * @brief initialise touts les joueurs
+ * 
+ * @return joueur* 
+ */
 joueur* init(){
     carte* deck = initDeck();
     joueur* table = malloc(sizeof(joueur)*4);
@@ -71,7 +105,11 @@ joueur* init(){
     return table;
 }
 
-
+/**
+ * @brief initialise une partieEnCours
+ * 
+ * @return partieEnCours* 
+ */
 partieEnCours* initPartieEnCours(){
     partieEnCours* jeuxEnCours = malloc(sizeof(partieEnCours));
     jeuxEnCours->taillePartie = 0;
