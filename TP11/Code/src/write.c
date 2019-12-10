@@ -1,9 +1,24 @@
+/**
+ * @file write.c
+ * @author Durand Thomas
+ * @brief ensemble des fonctions lie a l'ecriture d'une image
+ * @version 0.1
+ * @date 2019-12-10
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <stdio.h> 
 #include <stdlib.h>
 #include "structures.h"
 
-//marche pas encore :/
-
+/**
+ * @brief gere le retour a la ligne de l'ecriture d'une image
+ * 
+ * @param nbr 
+ * @param pose 
+ * @param fichier 
+ */
 void retourLigne(int nbr,int* pose,FILE* fichier){
 	if (nbr < 10){
 		*pose += 4;
@@ -25,10 +40,15 @@ void retourLigne(int nbr,int* pose,FILE* fichier){
 	}
 }
 
-void sortieImage(sImage image){ 
+/**
+ * @brief ecrit l'image dans un fichier
+ * 
+ * @param image 
+ */
+void sortieImage(sImage image,char* fichierSortie){ 
     
     FILE* fichier = NULL;
-	fichier = fopen("./P1.pbm","w");
+	fichier = fopen(fichierSortie,"w");
     if(fichier == NULL){
       printf("Error!");   
       exit(1);             

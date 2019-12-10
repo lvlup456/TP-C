@@ -1,8 +1,23 @@
+/**
+ * @file transformation.c
+ * @author Durand Thomas
+ * @brief enseble des fonctions lie a la transformation d'une image
+ * @version 0.1
+ * @date 2019-12-10
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "structures.h"
-
+/**
+ * @brief transforme une image en niveaux de gris
+ * 
+ * @param image 
+ * @return sImage 
+ */
 sImage niveauDeGris(sImage image){
     int val;
     for (int j = 0; j < image.hauteur; j++){
@@ -16,6 +31,13 @@ sImage niveauDeGris(sImage image){
     return image;
 }
 
+/**
+ * @brief applique le seuille sur une image
+ * 
+ * @param image 
+ * @param val 
+ * @return sImage 
+ */
 sImage seuillage(sImage image,int val){
     for (int j = 0; j < image.hauteur; j++){
         for (int i = 0; i < image.largeur  ; i++){
@@ -33,6 +55,15 @@ sImage seuillage(sImage image,int val){
     return image;
 }
 
+/**
+ * @brief calcule la nouvelle valeur d'un pixel d'une image 
+ * 
+ * @param image 
+ * @param x 
+ * @param y 
+ * @param noyau 
+ * @param matrice 
+ */
 void calcValeur(sImage image,int x, int y,sNoyau noyau,sPixel** matrice){
 
     int valr = 0;
@@ -71,6 +102,13 @@ void calcValeur(sImage image,int x, int y,sNoyau noyau,sPixel** matrice){
     matrice[x][y].b = valb;
 }
 
+/**
+ * @brief applique une matrice sur l'image
+ * 
+ * @param noyau 
+ * @param image 
+ * @return sImage 
+ */
 sImage applyMatrice(sNoyau noyau, sImage image){
     
     sPixel** matrice = malloc((image.largeur +1 ) * sizeof(sPixel*));

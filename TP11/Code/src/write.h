@@ -3,7 +3,7 @@
 
 #include "structures.h"
 
-void sortieImage(sImage image);
+void sortieImage(sImage image,char* fichierSortie);
 
 
 #endif

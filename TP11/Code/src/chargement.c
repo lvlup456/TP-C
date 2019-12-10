@@ -1,3 +1,13 @@
+/**
+ * @file chargement.c
+ * @author Durand Thomas
+ * @brief ensemble des fonctions lie au chargement d'une image
+ * @version 0.1
+ * @date 2019-12-10
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -5,7 +15,11 @@
 #include "structures.h"
 #include "transformation.h"
 
-
+/**
+ * @brief affiche la matrice d'une image
+ * 
+ * @param image 
+ */
 void afficheImage(sImage image){
 
     printf("largeur : %d  hauteur : %d \n",image.largeur,image.hauteur);
@@ -24,6 +38,12 @@ void afficheImage(sImage image){
     }
 }
 
+/**
+ * @brief verifie si un caracthere est un nombre
+ * 
+ * @param caractere 
+ * @return int 
+ */
 int isNumber(int caractere){
     if ((48 <= caractere && 57 >= caractere) || caractere == 45){
         return 1;
@@ -32,6 +52,12 @@ int isNumber(int caractere){
     }
 }
 
+/**
+ * @brief ouvre un fichier
+ * 
+ * @param path 
+ * @return FILE* 
+ */
 FILE* lireFichier(char* path){
     FILE* fichier = NULL;
     fichier = fopen(path, "r+");
@@ -42,6 +68,13 @@ FILE* lireFichier(char* path){
     return fichier;
 }
 
+/**
+ * @brief transforme un char en int
+ * 
+ * @param ligne 
+ * @param pose 
+ * @return int 
+ */
 int charToInt(char* ligne,int* pose){
     char ligneRes[10];
     int i = 0;
@@ -54,6 +87,13 @@ int charToInt(char* ligne,int* pose){
     return atoi(ligneRes);
 }
 
+/**
+ * @brief trouve la pose du prochain numero
+ * 
+ * @param pose 
+ * @param ligne 
+ * @param fichier 
+ */
 void getProchain(int* pose,char* ligne,FILE* fichier){
     while (isNumber(ligne[*pose]) == 0){
         *pose += 1;
@@ -64,6 +104,13 @@ void getProchain(int* pose,char* ligne,FILE* fichier){
     }
 }
 
+/**
+ * @brief ouvre une image et la transforme en une matrice
+ * 
+ * @param fichier 
+ * @param type 
+ * @return sImage 
+ */
 sImage regroupement(FILE* fichier,int type){
     sImage image;
     int test = 0;
@@ -134,7 +181,12 @@ sImage regroupement(FILE* fichier,int type){
     return image;
 }
 
-
+/**
+ * @brief charge une image
+ * 
+ * @param path 
+ * @return sImage 
+ */
 sImage chargementMemoire(char* path){
     FILE* fichier = lireFichier(path);  
     sImage image;  
@@ -164,7 +216,11 @@ sImage chargementMemoire(char* path){
     return image;
 
 }
-
+/**
+ * @brief affiche le noyau d'une matrice
+ * 
+ * @param noyau 
+ */
 void afficheNoyau(sNoyau noyau){
     for (int i = 0 ; i < noyau.taille;i++){
         for (int j = 0 ; j < noyau.taille;j++){
@@ -174,7 +230,12 @@ void afficheNoyau(sNoyau noyau){
     }
 }
 
-
+/**
+ * @brief charge un noyau de matrice
+ * 
+ * @param path 
+ * @return sNoyau 
+ */
 sNoyau chargementNoyau(char* path){
     FILE* fichier = lireFichier(path);  
     sNoyau noyau;

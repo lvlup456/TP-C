@@ -1,0 +1,3 @@
+utilisation:
+
+./prgm -in {image entree} -out {image sortie} -gris -seuil {valeur de seuil} -matrice {matrice entree}

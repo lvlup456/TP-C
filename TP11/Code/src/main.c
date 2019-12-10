@@ -1,3 +1,13 @@
+/**
+ * @file main.c
+ * @author Durand Thomas
+ * @brief fonction main
+ * @version 0.1
+ * @date 2019-12-10
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,7 +18,13 @@
 #include "transformation.h"
 #include "write.h"
 
-
+/**
+ * @brief fonction mai qui lit les parametres d'entree et agit en consequence
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char **argv){
 
     char* out = NULL;
@@ -54,7 +70,7 @@ int main(int argc, char **argv){
             seuillage(image,seuil[1]);
         }        
         if (out != NULL){
-            sortieImage(image);
+            sortieImage(image,out);
         }
     }
     
